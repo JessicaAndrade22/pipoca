@@ -29,10 +29,10 @@ public class FilmeDAO {
 			
 			// obter o id criado
 			String query = "select LAST_INSERT_ID()";
-			try (PreparedStatement pst1 = conn.prepareStatement(query); ResultSet result = pst1.executeQuery();) {
+			try (PreparedStatement pst1 = conn.prepareStatement(query); ResultSet r = pst1.executeQuery();) {
 
-				if (result.next()) {
-					id = result.getInt(1);
+				if (r.next()) {
+					id = r.getInt(1);
 				}
 			}
 		} catch (SQLException e) {
